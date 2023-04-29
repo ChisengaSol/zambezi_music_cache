@@ -7,8 +7,8 @@ class Musician(models.Model):
         on_delete=models.CASCADE,
     )
     stage_name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='images/')
-    bio = models.TextField()
+    image = models.ImageField(upload_to='images/',null=True)
+    bio = models.TextField(null=True)
 
 class Album(models.Model):
     title = models.CharField(max_length=255)
@@ -18,7 +18,7 @@ class Album(models.Model):
     )
     price = models.DecimalField(max_digits=10,decimal_places=2)
     image = models.ImageField(upload_to='images/')
-    description = models.TextField()
+    description = models.TextField(null=True)
     release_date = models.DateTimeField()
 
 class Track(models.Model):
@@ -27,9 +27,9 @@ class Track(models.Model):
         on_delete=models.CASCADE,
     )
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(null=True)
     file = models.FileField(upload_to='musics/')
-    album = models.ForeignKey(Album, on_delete= models.CASCADE)
+    album = models.ForeignKey(Album, on_delete= models.CASCADE,null=True)
     price = models.DecimalField(max_digits=10,decimal_places=2)
     is_available = models.BooleanField(default=False)
     release_date = models.DateTimeField()
