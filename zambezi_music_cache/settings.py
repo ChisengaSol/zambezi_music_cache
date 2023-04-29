@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$plg@ttct+^2m16l96g8@bk-5=fk$^w_12&f9cxu9ij=dr)mq1'
+SECRET_KEY = env("ZMC_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user_accounts',
+    'zambezimusiccache',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +83,16 @@ WSGI_APPLICATION = 'zambezi_music_cache.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": 'django.db.backends.postgresql',
+        "NAME": env("ZMC_DATABASE_NAME"),
+        "USER": env("ZMC_DATABASE_USER"),
+        "PASSWORD": env("ZMC_DATABASE_PASSWORD"),
+        "HOST": env("ZMC_DATABASE_HOST"),
+        "PORT": env("ZMC_DATABASE_PORT"),
     }
 }
+
+AUTH_USER_MODEL = 'user_accounts.User'
 
 
 # Password validation
@@ -121,3 +135,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
