@@ -94,14 +94,14 @@ class SinglePaymentView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView)
     serializer_class = PaymentsSerializer
 
 
-@api_view()
-@permission_classes([IsAuthenticated])
-@throttle_classes([UserRateThrottle])  # throttling for authenticated users
-def secret(request):
-    return Response({"message: Some secret message"})
+# @api_view()
+# @permission_classes([IsAuthenticated])
+# @throttle_classes([UserRateThrottle])  # throttling for authenticated users
+# def secret(request):
+#     return Response({"message: Some secret message"})
 
 
-@api_view()
-@throttle_classes([AnonRateThrottle])  # throttling for anonymous users
-def throttle_check(request):
-    return Response({"message: Successful"})
+# @api_view()
+# @throttle_classes([AnonRateThrottle])  # throttling for anonymous users
+# def throttle_check(request):
+#     return Response({"message: Successful"})

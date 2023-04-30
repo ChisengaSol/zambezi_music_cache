@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-from rest_framework.authtoken.views import obtain_auth_token
+
+# from rest_framework.authtoken.views import obtain_auth_token
 
 
 urlpatterns = [
@@ -18,7 +19,7 @@ urlpatterns = [
     path("purchases/<int:pk>", views.SinglePurchaseView.as_view()),
     path("payments/", views.PaymentsView.as_view()),
     path("payments/<int:pk>", views.SinglePaymentView.as_view()),
-    path("secret/", views.secret),
-    path("api-token-auth/", obtain_auth_token),
-    path("throttle-check/", views.throttle_check),
+    # path("secret/", views.secret),
+    # path("api-token-auth/", obtain_auth_token),
+    # path("throttle-check/", views.throttle_check),
 ]

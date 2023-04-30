@@ -49,10 +49,10 @@ INSTALLED_APPS = [
     "rest_framework",
     "debug_toolbar",
     "rest_framework.authtoken",
-    "djoser",
-    "rest_framework_simplejwt",
-    "rest_framework_simplejwt.token_blacklist",
-     "knox",
+    # "djoser",
+    # "rest_framework_simplejwt",
+    # "rest_framework_simplejwt.token_blacklist",
+    "knox",
 ]
 
 MIDDLEWARE = [
