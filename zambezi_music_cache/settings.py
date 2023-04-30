@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "rest_framework.authtoken",
     "djoser",
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist'
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
+     "knox",
 ]
 
 MIDDLEWARE = [
@@ -159,9 +160,10 @@ REST_FRAMEWORK = {
         "rest_framework_xml.renderers.XMLRenderer",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
+        # "rest_framework_simplejwt.authentication.JWTAuthentication",
+        # "rest_framework.authentication.TokenAuthentication",
+        # "rest_framework.authentication.SessionAuthentication",
+        "knox.auth.TokenAuthentication",
     ],
     "DEFAULT_THROTTLE_CLASSES": [
         "rest_framework.throttling.AnonRateThrottle",
@@ -173,9 +175,6 @@ REST_FRAMEWORK = {
     },
 }
 
-DJOSER = {
-    "USER_ID_FIELD": "email",
-    "LOGIN_FIELD": "email"
-}
+DJOSER = {"USER_ID_FIELD": "email", "LOGIN_FIELD": "email"}
 
-SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME":timedelta(minutes=5)}
+SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(minutes=5)}
