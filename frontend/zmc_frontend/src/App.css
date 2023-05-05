@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% 50% 10% 10%;
+  grid-row-gap: 20px;
+  grid-column-gap:30px;
+  grid-template-areas: 
+  "header header"
+  "trending-news weekly-countdown"
+  "advertisement advertisement"
+  "footer footer"
+  ;
+  justify-content: space-around;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  grid-area: header;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.trending-news{
+  grid-area: trending-news;
+  background-color: red;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.weekly-countdown{
+  grid-area: weekly-countdown;
 }
-
-.App-link {
-  color: #61dafb;
+.advertisement{
+  grid-area: advertisement;
+  background-color: blue;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer{
+  grid-area: footer;
 }

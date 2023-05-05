@@ -1,0 +1,22 @@
+.App-footer{
+    background-color:#F8F8FF !important;
+    font-size: 25;
+    height: 10%;
+    min-height: 40px;
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    position: fixed;
+    border-top: 2px solid #F8F8FF;
+    min-width: 200px;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    display: inline;
+    float: right;
+}
+.copyright{
+    float: left !important;
+}

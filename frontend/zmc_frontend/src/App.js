@@ -1,28 +1,18 @@
 // import logo from './logo.svg';
 import './App.css';
+import Advertisement from './components/Advertisement';
 import AnonHeader from './components/AnonHeader';
 import Footer from './components/Footer';
+import TrendingNews from './components/TrendingNews';
+import WeeklyCountdown from './components/WeeklyCountdown';
 function App() {
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-    <div>
-      <AnonHeader />
-    <Footer />
+    <div className="grid-container">
+      <div className="grid-item header"><AnonHeader /></div>
+      <div className="grid-item trending-news"><TrendingNews /></div>
+      <div className="grid-item weekly-countdown"><WeeklyCountdown /></div>
+      <div className="grid-item advertisement"><Advertisement /></div>
+      <div className="grid-item advertisement"><Footer /></div>
     </div>
      );
     

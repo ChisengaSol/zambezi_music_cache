@@ -4,7 +4,7 @@ const Footer = () => {
     return ( 
         <div className="App-footer">
             <ul>
-                <li>&#169;{new Date().getFullYear()} ZMC. All rights reserved</li>
+                <li className="copyright">&#169;{new Date().getFullYear()} ZMC. All rights reserved</li>
                 <li><a href="#">Youtube</a></li>
                 <li><a href="#">Instagram</a></li>
                 <li><a href="#">Facebook</a></li>
